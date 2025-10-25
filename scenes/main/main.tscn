@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyap1ox00exbr"]
+[gd_scene load_steps=6 format=3 uid="uid://cyap1ox00exbr"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_55qyt"]
+[ext_resource type="Script" path="res://scripts/State machine/state_machine.gd" id="2_hdum8"]
+[ext_resource type="Script" path="res://scenes/main/states/main_menu_state.gd" id="3_nf20y"]
+[ext_resource type="Script" path="res://scenes/main/states/game_top_down_state.gd" id="4_hadaw"]
+[ext_resource type="Script" path="res://scenes/main/states/quit_state.gd" id="5_5td4b"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" node_paths=PackedStringArray("state_machine")]
 script = ExtResource("1_55qyt")
+state_machine = NodePath("StateMachine")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("init_state")]
+script = ExtResource("2_hdum8")
+init_state = NodePath("MainMenuState")
+
+[node name="MainMenuState" type="Node" parent="StateMachine" node_paths=PackedStringArray("game_top_down_state", "quit_state")]
+script = ExtResource("3_nf20y")
+game_top_down_state = NodePath("../GameTopDownState")
+quit_state = NodePath("../QuitState")
+
+[node name="GameTopDownState" type="Node" parent="StateMachine"]
+script = ExtResource("4_hadaw")
+
+[node name="QuitState" type="Node" parent="StateMachine"]
+script = ExtResource("5_5td4b")

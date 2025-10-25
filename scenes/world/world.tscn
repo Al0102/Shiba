@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxby5fm13kmu1"]
+[gd_scene load_steps=3 format=3 uid="uid://bxby5fm13kmu1"]
 
-[ext_resource type="Script" path="res://scenes/player/fish_player.gd" id="1_onpfm"]
+[ext_resource type="PackedScene" uid="uid://benr5n7nqnnd5" path="res://scenes/player/fish_player.tscn" id="1_4i0qp"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tgvgs"]
 
 [node name="World" type="Node2D"]
 
-[node name="FishPlayerTop" type="CharacterBody2D" parent="."]
-script = ExtResource("1_onpfm")
+[node name="FishPlayer" parent="." instance=ExtResource("1_4i0qp")]
+
+[node name="Camera2D" type="Camera2D" parent="FishPlayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(73, 34)
+texture = SubResource("PlaceholderTexture2D_tgvgs")

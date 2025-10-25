@@ -1,3 +1,4 @@
+@icon("res://scripts/State machine/icons/state.svg")
 extends Node
 class_name State
 

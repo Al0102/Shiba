@@ -2,13 +2,8 @@ extends Node
 
 var cursor_atlas = preload("res://assets/fish_cursor.png")
 
-var main_menu = preload("res://scenes/main_menu.tscn").instantiate()
+@export var state_machine: StateMachine
 var current_scene: Node
-
-func change_scene(new_scene):
-	if new_scene:
-		remove_child(current_scene)
-		add_child(new_scene)
 
 func customize_mouse () -> void:
 	var cursor_texture = AtlasTexture.new()
@@ -21,13 +16,12 @@ func customize_mouse () -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+#	Setup screen
+	DisplayServer.window_set_size(Vector2i(640, 360))
+	
 #	Setup UI
 	customize_mouse()
 	
-#	Setup scenes
-	current_scene = main_menu
-	add_child(main_menu)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	change_scene(main_menu.process(delta))
+#	Start Scene State Machine
+	state_machine.start()
+	

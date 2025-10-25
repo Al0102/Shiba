@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfy0xupxfdqds"]
+[gd_scene load_steps=4 format=3 uid="uid://bfy0xupxfdqds"]
 
-[ext_resource type="Theme" uid="uid://cyrv31fuyhvck" path="res://themes/UI_theme.tres" id="1_utaef"]
-[ext_resource type="Script" path="res://scenes/ui/focus_button.gd" id="2_5on4j"]
+[ext_resource type="Theme" uid="uid://cyrv31fuyhvck" path="res://themes/UI_theme.tres" id="1_ygn6k"]
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="2_58r4d"]
+[ext_resource type="Script" path="res://scenes/ui/focus_button.gd" id="3_03c3a"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("start_button", "settings_button", "quit_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,16 +17,19 @@ focus_next = NodePath("Menu/MenuBox/CanvasLayer/SettingsButton")
 focus_previous = NodePath("Menu/MenuBox/CanvasLayer/QuitButton")
 focus_mode = 2
 mouse_default_cursor_shape = 2
-theme = ExtResource("1_utaef")
+theme = ExtResource("1_ygn6k")
+script = ExtResource("2_58r4d")
+start_button = NodePath("Menu/MenuBox/CanvasLayer/StartButton")
+settings_button = NodePath("Menu/MenuBox/CanvasLayer/SettingsButton")
+quit_button = NodePath("Menu/MenuBox/CanvasLayer/QuitButton")
 
 [node name="Menu" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -146.0
-offset_right = 172.0
-offset_bottom = 3.0
+offset_top = -101.0
+offset_right = 110.0
 grow_vertical = 0
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
@@ -41,27 +45,27 @@ layer = 2
 
 [node name="StartButton" type="Button" parent="Menu/MenuBox/CanvasLayer"]
 offset_left = 24.0
-offset_top = 529.0
-offset_right = 148.0
-offset_bottom = 560.0
-theme = ExtResource("1_utaef")
+offset_top = 103.0
+offset_right = 86.0
+offset_bottom = 118.0
+theme = ExtResource("1_ygn6k")
 text = "START"
-script = ExtResource("2_5on4j")
+script = ExtResource("3_03c3a")
 
 [node name="SettingsButton" type="Button" parent="Menu/MenuBox/CanvasLayer"]
 offset_left = 24.0
-offset_top = 563.0
-offset_right = 148.0
-offset_bottom = 594.0
-theme = ExtResource("1_utaef")
+offset_top = 122.0
+offset_right = 86.0
+offset_bottom = 137.0
+theme = ExtResource("1_ygn6k")
 text = "SETTINGS"
-script = ExtResource("2_5on4j")
+script = ExtResource("3_03c3a")
 
 [node name="QuitButton" type="Button" parent="Menu/MenuBox/CanvasLayer"]
 offset_left = 24.0
-offset_top = 597.0
-offset_right = 148.0
-offset_bottom = 628.0
-theme = ExtResource("1_utaef")
+offset_top = 141.0
+offset_right = 86.0
+offset_bottom = 156.0
+theme = ExtResource("1_ygn6k")
 text = "QUIT"
-script = ExtResource("2_5on4j")
+script = ExtResource("3_03c3a")
