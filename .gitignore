@@ -3,6 +3,9 @@
 .nomedia
 /android/
 
+addons/godot_super-wakatime/
+addons/godot-vim/
+
 # Godot-specific ignores
 .import/
 export.cfg

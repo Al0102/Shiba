@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxby5fm13kmu1"]
+
+[ext_resource type="Script" path="res://scenes/player/fish_player.gd" id="1_onpfm"]
+
+[node name="World" type="Node2D"]
+
+[node name="FishPlayerTop" type="CharacterBody2D" parent="."]
+script = ExtResource("1_onpfm")
