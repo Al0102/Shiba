@@ -2,14 +2,21 @@
 
 [ext_resource type="PackedScene" uid="uid://benr5n7nqnnd5" path="res://scenes/player/fish_player.tscn" id="1_4i0qp"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tgvgs"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iotys"]
+size = Vector2(530, 1)
 
 [node name="World" type="Node2D"]
 
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(420, 220)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(160, 0)
+scale = Vector2(0.603774, 180)
+texture = SubResource("PlaceholderTexture2D_iotys")
+
 [node name="FishPlayer" parent="." instance=ExtResource("1_4i0qp")]
+reset_pressed_timer_max = 0.06
 
 [node name="Camera2D" type="Camera2D" parent="FishPlayer"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(73, 34)
-texture = SubResource("PlaceholderTexture2D_tgvgs")
